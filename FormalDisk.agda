@@ -1,17 +1,17 @@
 {-# OPTIONS --without-K #-}
 
-module FormalDisk where 
-  open import Basics
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Language
-  open import Equivalences
-  open import CommonEquivalences  
-  open import Im
-  open import DependentTypes
-  open import Fiber
-  open import Contractibility
-  open import HomogeneousType
+module CDCHoTT.FormalDisk where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Language
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.CommonEquivalences  
+  open import CDCHoTT.Im
+  open import CDCHoTT.DependentTypes
+  open import CDCHoTT.Fiber
+  open import CDCHoTT.Contractibility
+  open import CDCHoTT.HomogeneousType
 
 
   _is-infinitesimally-close-to_ :

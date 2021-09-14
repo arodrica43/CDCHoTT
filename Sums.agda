@@ -4,12 +4,12 @@
   Here are some lemmata about sums.
 -}
 
-module Sums where
-  open import Basics
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Equivalences
-  open import Contractibility
+module CDCHoTT.Sums where
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.Contractibility
 
 
   the-map-of-sums-given-by_is-an-equivalence-since-it-is-fiberwise-an-equivalence-by_ :

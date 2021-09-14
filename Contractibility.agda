@@ -1,11 +1,11 @@
 {-# OPTIONS --without-K #-}
 
-module Contractibility where 
-  open import Basics
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Equivalences
-  open import Language
+module CDCHoTT.Contractibility where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.Language
 
   record _is-contractible {i} (A : U i) : U i where
     constructor contracts-to_by_

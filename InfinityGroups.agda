@@ -1,14 +1,14 @@
 {-# OPTIONS --without-K #-}
 
-module InfinityGroups where 
-  open import Basics
-  open import EqualityAndPaths
-  open import Equivalences
-  open import Homotopies
-  open import PropositionalTruncation
-  open import FunctionExtensionality
-  open import Fiber
-  open import Image
+module CDCHoTT.InfinityGroups where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.PropositionalTruncation
+  open import CDCHoTT.FunctionExtensionality
+  open import CDCHoTT.Fiber
+  open import CDCHoTT.Image
 
   Ω : ∀ (X : 𝒰₀) (x₀ : X) → 𝒰₀
   Ω X x₀ = (x₀ ≈ x₀)
@@ -47,7 +47,7 @@ module InfinityGroups where
     {A B : 𝒰₀} (f : A ≃ B) where
     -- univalence should not be necessary...
 
-    open import Univalence
+    open import CDCHoTT.Univalence
 
     equivalence : BAut A ≃ BAut B
     equivalence = transport-as-equivalence (λ X → BAut X) (univalence f)

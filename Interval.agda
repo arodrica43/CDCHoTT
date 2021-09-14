@@ -1,8 +1,8 @@
 {-# OPTIONS --without-K #-}
 
-module Interval where
-  open import Basics
-  open import EqualityAndPaths
+module CDCHoTT.Interval where
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
 
   module _ where
     private

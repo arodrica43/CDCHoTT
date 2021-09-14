@@ -26,16 +26,16 @@
 
 -}
 
-module ImHomogeneousType where
-  open import Basics 
-  open import EqualityAndPaths renaming (_⁻¹ to _⁻¹•)
-  open import Homotopies
-  open import Language
-  open import Equivalences
-  open import CommonEquivalences
-  open import HomogeneousType
-  open import Im
-  open import FormalDisk
+module CDCHoTT.ImHomogeneousType where
+  open import CDCHoTT.Basics 
+  open import CDCHoTT.EqualityAndPaths renaming (_⁻¹ to _⁻¹•)
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Language
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.CommonEquivalences
+  open import CDCHoTT.HomogeneousType
+  open import CDCHoTT.Im
+  open import CDCHoTT.FormalDisk
 
   module ℑ-homogene-sequence {A : 𝒰₀} (A′ : homogeneous-structure-on A) where
     open homogeneous-structure-on_ A′
@@ -195,8 +195,8 @@ module ImHomogeneousType where
 
 
 
-    import DependentTypes
-    open DependentTypes.fiber-equivalences-along-an-equivalence-on-the-base 𝔻ₑ′ 𝔻ₑ′
+    import CDCHoTT.DependentTypes
+    open CDCHoTT.DependentTypes.fiber-equivalences-along-an-equivalence-on-the-base 𝔻ₑ′ 𝔻ₑ′
 
     ψ-𝔻ₑ : ∀ (d : 𝔻ₑ) → 𝔻ₑ ≃ 𝔻ₑ
     ψ-𝔻ₑ (x , γ) =

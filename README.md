@@ -1,4 +1,7 @@
-# DCHoTT-Agda
+# CCDCHoTT
+Cubical Differential Cohesive Homotopy Type Theory is an adaptation of the Differential Cohesion implemented in Agda by Felix Cherubini (Wellen) to work with the lastet version of agda-flat and with cubical-agda.
+
+# DCHoTT
 Differential cohesion in Homotopy Type Theory by an axiomatized coreduction modality.
 The following is proved and could also be interpreted as theorems about general modalities:
 

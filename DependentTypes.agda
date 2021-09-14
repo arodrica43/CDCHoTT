@@ -1,15 +1,15 @@
 {-# OPTIONS --without-K #-}
 
-module DependentTypes where 
-  open import Homotopies
-  open import Fiber
-  open import Equivalences 
-  open import HalfAdjointEquivalences
-  open import Pullback 
-  open import PullbackSquare 
+module CDCHoTT.DependentTypes where 
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Fiber
+  open import CDCHoTT.Equivalences 
+  open import CDCHoTT.HalfAdjointEquivalences
+  open import CDCHoTT.Pullback 
+  open import CDCHoTT.PullbackSquare 
   -- univalence is needed to transform pullback-squares to
   -- morphisms over 𝒰₀
-  open import Univalence
+  open import CDCHoTT.Univalence
 
   
   record morphism-of-dependent-types (A′ A : 𝒰₀) (E′ : A′ → 𝒰₀) (E : A → 𝒰₀) : 𝒰₀ where
@@ -403,8 +403,8 @@ module DependentTypes where
       conclude that all fibers are contractible
     -}
 
-    open import EquivalenceCharacterization
-    open import Contractibility
+    open import CDCHoTT.EquivalenceCharacterization
+    open import CDCHoTT.Contractibility
     
     all-fibers-are-contractible :
       ∀ (c : C)
@@ -549,7 +549,7 @@ module DependentTypes where
       ∑π₁ ∑π₁ ψ id-as-equivalence
       (λ {(x , p) → refl}) 
 
-    open import Fiber
+    open import CDCHoTT.Fiber
 
     conclude-equivalence-of-fibers :
       (x : A) → P x ≃ Q x

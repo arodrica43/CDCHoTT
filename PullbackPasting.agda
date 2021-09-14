@@ -1,14 +1,14 @@
 {-# OPTIONS --without-K #-}
 
-module PullbackPasting where 
-  open import Basics
-  open import EqualityAndPaths
-  open import Equivalences
-  open import HalfAdjointEquivalences
-  open import Homotopies
-  open import FunctionExtensionality
-  open import Language
-  open import Pullback
+module CDCHoTT.PullbackPasting where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.HalfAdjointEquivalences
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.FunctionExtensionality
+  open import CDCHoTT.Language
+  open import CDCHoTT.Pullback
 
   -- pasting
 

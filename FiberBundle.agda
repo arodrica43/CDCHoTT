@@ -1,17 +1,17 @@
 {-# OPTIONS --without-K #-}
 
-module FiberBundle where 
-  open import Basics 
-  open import EqualityAndPaths
-  open import PropositionalTruncation
-  open import PullbackSquare
-  open import Homotopies
-  open import Equivalences
-  open import Fiber
-  open import Language
-  open import Image
-  open import DependentTypes
-  open import InfinityGroups
+module CDCHoTT.FiberBundle where 
+  open import CDCHoTT.Basics 
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.PropositionalTruncation
+  open import CDCHoTT.PullbackSquare
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.Fiber
+  open import CDCHoTT.Language
+  open import CDCHoTT.Image
+  open import CDCHoTT.DependentTypes
+  open import CDCHoTT.InfinityGroups
 
 
   {- 
@@ -174,17 +174,15 @@ module FiberBundle where
          }
 
 
-    open import Univalence
-    open import Sums
-
+    open import CDCHoTT.Univalence
+    open import CDCHoTT.Sums
+    
     private
-      specialize-image-to-BAut : ∀ (φ : B → 𝒰₀)
-        → (x : B) → ∥ (φ x ≃ F) ∥ → the-image-of (λ ∗ → F) contains (φ x)
+      specialize-image-to-BAut : ∀ (φ : B → 𝒰₀) → (x : B) → ∥ (φ x ≃ F) ∥ → the-image-of (λ ∗ → F) contains (φ x)
       specialize-image-to-BAut φ x = ∥→ (λ e → (∗ , univalence (e ⁻¹≃))) ∥→
-      specialize-image-to-BAut′ : ∀ (φ : B → 𝒰₀)
-        → (x : B) → the-image-of (λ ∗ → F) contains (φ x) → ∥ (φ x ≃ F) ∥ 
-      specialize-image-to-BAut′ φ x = ∥→ (λ {(∗ , p) → U-transport p ⁻¹≃}) ∥→
-
+     {--  specialize-image-to-BAut′ : ∀ (φ : B → 𝒰₀) → (x : B) → the-image-of (λ ∗ → F) contains (φ x) → ∥ (φ x ≃ F) ∥ 
+      specialize-image-to-BAut′ φ x = ∥→ (λ (∗ , p) → U-transport p ⁻¹≃) ∥→ --}
+    
     def-to-def′ :
       ∀ (φ : B → 𝒰₀)
       → φ is-a F -fiber-bundle
@@ -198,7 +196,7 @@ module FiberBundle where
       }
 
 
-    def′-to-def :
+    {-- def′-to-def :
       ∀ {E : 𝒰₀} (p : E → B)
       → p is-a′ F -fiber-bundle′
       → (λ x → fiber-of p at x) is-a F -fiber-bundle
@@ -210,3 +208,4 @@ module FiberBundle where
         specialize-image-to-BAut′ (λ x → fiber-of p at x) b
           (U-transport ((λ z → the-image-of _ contains z) ⁎ univalence (classyfies b) ) ⁻¹≃ $≃ (∑π₂ (χ b)))
       }
+      --}

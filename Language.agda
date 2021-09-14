@@ -1,8 +1,8 @@
 {-# OPTIONS --without-K #-}
 
-module Language where 
-  open import Basics
-  open import EqualityAndPaths
+module CDCHoTT.Language where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
 
   
   -- language constructs indicating typing

@@ -1,16 +1,16 @@
 {-# OPTIONS --without-K #-}
 
-module PullbackSquare where 
-  open import Basics
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Fiber 
-  open import Equivalences
-  open import CommonEquivalences
-  open import HalfAdjointEquivalences
-  open import FunctionExtensionality
-  open import Pullback
-  open import PullbackPasting
+module CDCHoTT.PullbackSquare where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Fiber 
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.CommonEquivalences
+  open import CDCHoTT.HalfAdjointEquivalences
+  open import CDCHoTT.FunctionExtensionality
+  open import CDCHoTT.Pullback
+  open import CDCHoTT.PullbackPasting
   
 
   {-

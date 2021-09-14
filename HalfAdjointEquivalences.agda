@@ -1,12 +1,12 @@
 {-# OPTIONS --without-K #-}
 
-open import Basics
-open import EqualityAndPaths
-open import Homotopies
-open import Equivalences
-open import Language
+open import CDCHoTT.Basics
+open import CDCHoTT.EqualityAndPaths
+open import CDCHoTT.Homotopies
+open import CDCHoTT.Equivalences
+open import CDCHoTT.Language
 
-module HalfAdjointEquivalences where
+module CDCHoTT.HalfAdjointEquivalences where
 
   record _is-an-half-adjoint-equivalence {A B : 𝒰₀} (f : A → B) : 𝒰₀ where
     constructor has-inverse_by_,_and-is-half-adjoint-by_

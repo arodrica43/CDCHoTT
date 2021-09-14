@@ -7,16 +7,16 @@
   (chapter 9, https://arxiv.org/abs/1509.07584 [1]).
 -}
 
-module Shape where
-  open import Basics
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Contractibility using (const)
-  open import Equivalences
-  open import FunctionExtensionality
-  open import Flat renaming (_is-discrete to _is-crisply-discrete)
-  open import PostulateAffineLine
-  open import DiscreteTypes
+module CDCHoTT.Shape where
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Contractibility using (const)
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.FunctionExtensionality
+  open import CDCHoTT.Flat renaming (_is-discrete to _is-crisply-discrete)
+  open import CDCHoTT.PostulateAffineLine
+  open import CDCHoTT.DiscreteTypes
   
   {- 
 

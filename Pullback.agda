@@ -1,15 +1,15 @@
 {-# OPTIONS --without-K #-}
 
-module Pullback where 
-  open import Basics
-  open import EqualityAndPaths
-  open import Equivalences
-  open import HalfAdjointEquivalences
-  open import Homotopies
-  open import Fiber
-  open import Contractibility
-  open import FunctionExtensionality
-  open import Language
+module CDCHoTT.Pullback where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.HalfAdjointEquivalences
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Fiber
+  open import CDCHoTT.Contractibility
+  open import CDCHoTT.FunctionExtensionality
+  open import CDCHoTT.Language
 
   representability : ∀ (A : 𝒰₀) → (𝟙 → A) ≃ A
   representability A = ((λ t → t ∗) is-an-equivalence-because

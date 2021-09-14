@@ -1,24 +1,24 @@
 {-# OPTIONS --without-K #-}
 
-module Manifolds where 
-  open import EqualityAndPaths
-  open import PropositionalTruncation
-  open import DependentTypes
-  open import Fiber
-  open import Equivalences renaming (underlying-map-of to underlying-map-of-the-equivalence)
-  open import InfinityGroups
-  open import Contractibility
-  open import Homotopies
-  open import Im
-  open import FormalDiskBundle
-  open import EtaleMaps
-  open import Language
-  open import Image
-  open import FiberBundle
-  open import FormalDisk
-  open import HomogeneousType
-  open import ImHomogeneousType
-  open import PropertiesOfEtaleMaps
+module CDCHoTT.Manifolds where 
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.PropositionalTruncation
+  open import CDCHoTT.DependentTypes
+  open import CDCHoTT.Fiber
+  open import CDCHoTT.Equivalences renaming (underlying-map-of to underlying-map-of-the-equivalence)
+  open import CDCHoTT.InfinityGroups
+  open import CDCHoTT.Contractibility
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Im
+  open import CDCHoTT.FormalDiskBundle
+  open import CDCHoTT.EtaleMaps
+  open import CDCHoTT.Language
+  open import CDCHoTT.Image
+  open import CDCHoTT.FiberBundle
+  open import CDCHoTT.FormalDisk
+  open import CDCHoTT.HomogeneousType
+  open import CDCHoTT.ImHomogeneousType
+  open import CDCHoTT.PropertiesOfEtaleMaps
 
 
   record _-manifold {V′ : 𝒰₀} (V : homogeneous-structure-on V′) : 𝒰₁ where

@@ -2,23 +2,24 @@
 
 {- taken from the HoTT-Agda library -}
 
-open import Basics
-open import EqualityAndPaths
-open import Homotopies
-open import Contractibility
-open import Equivalences
-open import Univalence
+open import CDCHoTT.Basics
+open import CDCHoTT.EqualityAndPaths
+open import CDCHoTT.Homotopies
+open import CDCHoTT.Contractibility
+open import CDCHoTT.Equivalences
+open import CDCHoTT.Univalence
 
 {-
 A proof of function extensionality from the univalence axiom.
 Adapted to this library.
 -}
 
-module FunctionExtensionalityLIB {i} {A : 𝒰 i} where
+module CDCHoTT.FunctionExtensionalityLIB {i} {A : 𝒰 i} where
 
+{- 
 -- Naive non dependent function extensionality
 
-module FunextNonDep {j} {B : 𝒰 j} {f g : A → B} (h : f ⇒ g)
+module CDCHoTT.FunextNonDep {j} {B : 𝒰 j} {f g : A → B} (h : f ⇒ g)
   where
 
   private
@@ -58,7 +59,7 @@ open FunextNonDep using (λ=-nondep)
 
 -- Weak function extensionality (a product of contractible types is
 -- contractible)
-module WeakFunext {j} {P : A → 𝒰 j} (e : (x : A) → (P x) is-contractible) where
+module CDCHoTT.WeakFunext {j} {P : A → 𝒰 j} (e : (x : A) → (P x) is-contractible) where
 
   open _is-contractible
 
@@ -73,7 +74,7 @@ module WeakFunext {j} {P : A → 𝒰 j} (e : (x : A) → (P x) is-contractible)
 
 -- Naive dependent function extensionality
 
-module FunextDep {j} {P : A → 𝒰 j} {f g : Π P} (h : f ⇒Π g)
+module CDCHoTT.FunextDep {j} {P : A → 𝒰 j} {f g : Π P} (h : f ⇒Π g)
   where
 
   open WeakFunext
@@ -105,7 +106,7 @@ module FunextDep {j} {P : A → 𝒰 j} {f g : Π P} (h : f ⇒Π g)
 
 -- Strong function extensionality
 
-module StrongFunextDep {j} {P : A → 𝒰 j} where
+module CDCHoTT.StrongFunextDep {j} {P : A → 𝒰 j} where
 
   open FunextDep
 
@@ -142,7 +143,7 @@ module StrongFunextDep {j} {P : A → 𝒰 j} where
 
 -- We only export the following
 
-module _ {j} {P : A → 𝒰 j} {f g : Π P} where
+module CDCHoTT._ {j} {P : A → 𝒰 j} {f g : Π P} where
 
   app= : f ≈ g → f ⇒Π g
   app= p x = ap (λ u → u x) p
@@ -168,3 +169,4 @@ module _ {j} {P : A → 𝒰 j} {f g : Π P} where
     abstract
       app=-is-equiv : app= is-an-equivalence
       app=-is-equiv = StrongFunextDep.app=-is-equiv
+ -}

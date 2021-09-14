@@ -1,16 +1,16 @@
 {-# OPTIONS --without-K #-}
 
-module Image where 
-  open import Basics
-  open import Language
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Fiber
-  open import Equivalences renaming (underlying-map-of to underlying-map-of-the-equivalence)
-  open import EquivalenceCharacterization
-  open import Contractibility
-  open import PropositionalTruncation
-  open import Univalence
+module CDCHoTT.Image where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.Language
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Fiber
+  open import CDCHoTT.Equivalences renaming (underlying-map-of to underlying-map-of-the-equivalence)
+  open import CDCHoTT.EquivalenceCharacterization
+  open import CDCHoTT.Contractibility
+  open import CDCHoTT.PropositionalTruncation
+  open import CDCHoTT.Univalence
 
   {-
     the following is called 'surjective' in the HoTT-Book 

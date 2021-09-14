@@ -1,10 +1,10 @@
 {-# OPTIONS --without-K #-}
 
-module Univalence where 
+module CDCHoTT.Univalence where 
 
-  open import Basics public
-  open import EqualityAndPaths public
-  open import Equivalences public
+  open import CDCHoTT.Basics public
+  open import CDCHoTT.EqualityAndPaths public
+  open import CDCHoTT.Equivalences public
 
   -- univalence
   postulate 

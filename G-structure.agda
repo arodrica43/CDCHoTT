@@ -1,19 +1,19 @@
 {-# OPTIONS --without-K #-}
 
-module G-structure where
-  open import EqualityAndPaths
-  open import Equivalences renaming (underlying-map-of to as-plain-map)
-  open import Homotopies
-  open import Univalence
-  open import FormalDiskBundle
-  open import FiberBundle
-  open import InfinityGroups
-  open import PropositionalTruncation
-  open import Image
-  open import EtaleMaps
-  open import Manifolds
-  open import FormalDisk
-  open import HomogeneousType
+module CDCHoTT.G-structure where
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Equivalences renaming (underlying-map-of to as-plain-map)
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Univalence
+  open import CDCHoTT.FormalDiskBundle
+  open import CDCHoTT.FiberBundle
+  open import CDCHoTT.InfinityGroups
+  open import CDCHoTT.PropositionalTruncation
+  open import CDCHoTT.Image
+  open import CDCHoTT.EtaleMaps
+  open import CDCHoTT.Manifolds
+  open import CDCHoTT.FormalDisk
+  open import CDCHoTT.HomogeneousType
 
   
   record groups-over-structure-group-of_ {V : 𝒰₀}

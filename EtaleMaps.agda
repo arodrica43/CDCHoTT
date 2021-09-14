@@ -2,12 +2,12 @@
 
 
 
-module EtaleMaps where 
-  open import Equivalences renaming (underlying-map-of to underlying-map-of-the-equivalence)
-  open import PullbackSquare
-  open import Im public
-  open import DependentTypes
-  open import Language
+module CDCHoTT.EtaleMaps where 
+  open import CDCHoTT.Equivalences renaming (underlying-map-of to underlying-map-of-the-equivalence)
+  open import CDCHoTT.PullbackSquare
+  open import CDCHoTT.Im public
+  open import CDCHoTT.DependentTypes
+  open import CDCHoTT.Language
 
   _as-plain-map :
     ∀ {A B : 𝒰₀}

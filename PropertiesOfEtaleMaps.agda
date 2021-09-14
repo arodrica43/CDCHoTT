@@ -1,18 +1,18 @@
 {-# OPTIONS --without-K #-}
 
-module PropertiesOfEtaleMaps where 
-  open import Basics
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Equivalences renaming (underlying-map-of to underlying-map-of-the-equivalence)
-  open import Pullback
-  open import PullbackSquare
-  open import DependentTypes
-  open import Im
-  open import Language
-  open import EtaleMaps
-  open import FormalDisk
-  open import FormalDiskBundle
+module CDCHoTT.PropertiesOfEtaleMaps where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Equivalences renaming (underlying-map-of to underlying-map-of-the-equivalence)
+  open import CDCHoTT.Pullback
+  open import CDCHoTT.PullbackSquare
+  open import CDCHoTT.DependentTypes
+  open import CDCHoTT.Im
+  open import CDCHoTT.Language
+  open import CDCHoTT.EtaleMaps
+  open import CDCHoTT.FormalDisk
+  open import CDCHoTT.FormalDiskBundle
 
   module lifting-formal-disks
     {A  : 𝒰₀} (f : A → 𝒰₀) (f-is-coreduced : (x : A) → (f x) is-coreduced) (a : A)

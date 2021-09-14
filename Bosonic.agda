@@ -70,18 +70,18 @@ Proposition will be of interest!
 
 -}
 
-open import Basics
-open import Equivalences
-open import Flat renaming
+open import CDCHoTT.Basics
+open import CDCHoTT.Equivalences
+open import CDCHoTT.Flat renaming
   (♭ to ⇝;
    ♭-counit to ⇝-counit;
    ♭-counit-at to ⇝-counit-at;
    ♭→ to ⇝→;
    ♭-recursion to ⇝-recursion)  -- \r~
--- open import Im
-open import EtaleMaps
+-- open import CDCHoTT.Im
+open import CDCHoTT.EtaleMaps
 
-module Bosonic where
+module CDCHoTT.Bosonic where
 
   {- 
     we will use ⇝ as the bosonic modality
@@ -90,19 +90,19 @@ module Bosonic where
   -}
 
   _is-bosonic :
-    ∀ (X :{♭} 𝒰₀) → 𝒰₀
+    ∀ (@♭ X : 𝒰₀) → 𝒰₀
   X is-bosonic = (⇝-counit-at X) is-an-equivalence
 
   postulate
     coreduced-⇒-bosonic :
-      ∀ {X :{♭} 𝒰₀} →
+      ∀ {@♭ X : 𝒰₀} →
       (X is-coreduced) → X is-bosonic
 
   {-
     This should yield a natural morphism ⇝ℑX ─≃→ ℑ⇝X
   -}
 
-  ⇝-preserves-coreduced : ∀ {X :{♭} 𝒰₀}
+  ⇝-preserves-coreduced : ∀ {@♭ X : 𝒰₀}
     → ⇝ (ℑ X) ≃ ℑ X
   ⇝-preserves-coreduced {X} =
     ⇝-counit-at (ℑ X)
@@ -110,7 +110,7 @@ module Bosonic where
         coreduced-⇒-bosonic (ℑ-is-coreduced X)
 
   ⇝-ℑ-compare :
-    ∀ {X :{♭} 𝒰₀}
+    ∀ {@♭ X : 𝒰₀}
     → ℑ (⇝ X) → ⇝ (ℑ X) 
   ⇝-ℑ-compare {X} =
     ⇝-recursion
@@ -118,7 +118,7 @@ module Bosonic where
       (coreduced-⇒-bosonic (ℑ-is-coreduced (⇝ X)))
 
   ⇝-ℑ-commute :
-    ∀ {X :{♭} 𝒰₀}
+    ∀ {@♭ X : 𝒰₀}
     → ⇝-ℑ-compare {X} is-an-equivalence
   ⇝-ℑ-commute {X} =
     let

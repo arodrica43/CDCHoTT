@@ -9,17 +9,17 @@
   abstract affine line object called '𝔸'
 -}
 
-module DiscreteTypes where
-  open import Basics
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Equivalences
-  open import Contractibility using (const)
-  open import CommonEquivalences
-  open import HalfAdjointEquivalences
-  open import FunctionExtensionality
-  open import Flat renaming (_is-discrete to _is-crisply-discrete)
-  open import PostulateAffineLine
+module CDCHoTT.DiscreteTypes where
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.Contractibility using (const)
+  open import CDCHoTT.CommonEquivalences
+  open import CDCHoTT.HalfAdjointEquivalences
+  open import CDCHoTT.FunctionExtensionality
+  open import CDCHoTT.Flat renaming (_is-discrete to _is-crisply-discrete)
+  open import CDCHoTT.PostulateAffineLine
 
 
   _is-discrete : ∀ (A : 𝒰₀) → 𝒰₀

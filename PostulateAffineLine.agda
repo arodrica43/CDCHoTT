@@ -9,14 +9,14 @@
   abstract affine line object called '𝔸'
 -}
 
-module PostulateAffineLine where
-  open import Basics
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Equivalences
-  open import HomogeneousType
-  open import Flat renaming (_is-discrete to _is-crisply-discrete)
-  open import Contractibility using (const)
+module CDCHoTT.PostulateAffineLine where
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.HomogeneousType
+  open import CDCHoTT.Flat renaming (_is-discrete to _is-crisply-discrete)
+  open import CDCHoTT.Contractibility using (const)
 
   {-
     this auxilliary definition may find a better home some day...
@@ -26,7 +26,7 @@ module PostulateAffineLine where
     𝔸 : 𝒰₀
     𝔸′ : homogeneous-structure-on 𝔸
     𝔸-nullfies-discrete-types :
-      ∀ (A :{♭} 𝒰₀)
+      ∀ (@♭ A : 𝒰₀)
       → A is-crisply-discrete ≃ const {𝔸} {A} is-an-equivalence
 
   origin-of-𝔸 : 𝔸

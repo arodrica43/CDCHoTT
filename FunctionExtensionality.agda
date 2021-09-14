@@ -1,11 +1,11 @@
 {-# OPTIONS --without-K #-}
 
-module FunctionExtensionality where
-  open import Basics
-  open import EqualityAndPaths
-  open import Equivalences
-  open import Homotopies
-  open import Interval
+module CDCHoTT.FunctionExtensionality where
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Interval
 
   {-
     This approach to function extensionality

@@ -1,15 +1,15 @@
 {-# OPTIONS --without-K #-}
 
-module EquivalenceCharacterization where 
-  open import Basics
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Equivalences
-  open import Contractibility
-  open import PullbackSquare
+module CDCHoTT.EquivalenceCharacterization where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.Contractibility
+  open import CDCHoTT.PullbackSquare
   
   module contractible-fibers-characterize-equivalences {A B : 𝒰₀} (f : A → B) where
-    open import Fiber
+    open import CDCHoTT.Fiber
     open _is-contractible
     
     from-fiber-condition :

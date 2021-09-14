@@ -1,10 +1,10 @@
 {-# OPTIONS --without-K #-}
 
-module Equivalences where 
-  open import Basics public
-  open import EqualityAndPaths 
-  open import Language 
-  open import Homotopies 
+module CDCHoTT.Equivalences where 
+  open import CDCHoTT.Basics public
+  open import CDCHoTT.EqualityAndPaths 
+  open import CDCHoTT.Language 
+  open import CDCHoTT.Homotopies 
   
   _left-inverse-of_ : ∀ {i j} {A : U i} {B : U j} → (f : A → B) → (g : B → A) → U j
   f left-inverse-of g =  (f ∘ g) ∼ id

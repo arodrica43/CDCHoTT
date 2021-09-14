@@ -19,36 +19,36 @@
 -}
 
 
-module Flat where
-  open import Basics 
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Equivalences
-  open import Contractibility
-  open import DependentTypes
+module CDCHoTT.Flat where
+  open import CDCHoTT.Basics 
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.Contractibility
+  open import CDCHoTT.DependentTypes
 
-  data ♭ {l :{♭} Level} (A :{♭} 𝒰 l) : 𝒰 l where
-    _^♭ : (a :{♭} A) → ♭ A
+  data ♭ {@♭ l : Level} (@♭ A : 𝒰 l) : 𝒰 l where
+    _^♭ : (@♭ a : A) → ♭ A
 
-  ♭-induction : ∀ {c : Level} {l :{♭} Level}{A :{♭} 𝒰 l}
+  ♭-induction : ∀ {c : Level} {@♭ l : Level}{@♭ A : 𝒰 l}
          → (C : ♭ A → 𝒰 c)
-         → ((u :{♭} A) → C (u ^♭))
+         → ((@♭ u : A) → C (u ^♭))
          → (x : ♭ A) → C x
   ♭-induction C f (x ^♭) = f x
 
-  ♭-counit : ∀ {l :{♭} Level} {A :{♭} 𝒰 l}
+  ♭-counit : ∀ {@♭ l : Level} {@♭ A : 𝒰 l}
     → (♭ A → A)
   ♭-counit (x ^♭) = x
 
   ♭-counit-at : 
-      ∀ (A :{♭} 𝒰₀)
+      ∀ (@♭ A : 𝒰₀)
     → (♭ A → A)
   ♭-counit-at A = ♭-counit {_} {A}
 
-  _is-discrete : ∀ (A :{♭} 𝒰₀) → 𝒰₀
+  _is-discrete : ∀ (@♭ A : 𝒰₀) → 𝒰₀
   A is-discrete = (♭-counit-at A) is-an-equivalence
   
-  ♭-idempotent : ∀ (A :{♭} 𝒰₀)
+  ♭-idempotent : ∀ (@♭ A : 𝒰₀)
     → (♭ A) is-discrete
   ♭-idempotent A =
     has-left-inverse
@@ -59,21 +59,21 @@ module Flat where
       by (λ {(x ^♭) → refl})
 
   let♭ :
-    {l l' :{♭} Level}
-    {A :{♭} 𝒰 l}
+    {@♭ l l' : Level}
+    {@♭ A : 𝒰 l}
     {C : ♭ A → 𝒰 l'}
     (s : ♭ A)
-    (t : (u :{♭} A) → C (u ^♭))
+    (t : (@♭ u : A) → C (u ^♭))
     → -------------
     C s
   let♭ (a ^♭) t = t a
 
   let♭' :
-    {l l' :{♭} Level}
-    {A :{♭} 𝒰 l}
+    {@♭ l l' : Level}
+    {@♭ A : 𝒰 l}
     {C : ♭ A → 𝒰 l'}
     (s : ♭ A)
-    (t : (u :{♭} A) → C (u ^♭))
+    (t : (@♭ u : A) → C (u ^♭))
     → -------------
     C s
   let♭' {C = C} x t = let♭ {C = C} x t
@@ -82,29 +82,29 @@ module Flat where
   syntax let♭' {C = C} s (λ u → t) = let♭' u ^♭:= s in♭ t in-family C
 
 
-  ♭→ : ∀ {A B :{♭} 𝒰₀}
-    → (f :{♭} A → B)
+  ♭→ : ∀ {@♭ A B : 𝒰₀}
+    → (@♭ f : A → B)
     → (♭ A → ♭ B)
   ♭→ f (a ^♭) = (f a) ^♭
 
-  ♭→-commutes-with-∘ : ∀ {A B C :{♭} 𝒰₀}
-    → (f :{♭} A → B) (g :{♭} B → C)
+  ♭→-commutes-with-∘ : ∀ {@♭ A B C : 𝒰₀}
+    → (@♭ f : A → B) (@♭ g : B → C)
     → (♭→ g) ∘ (♭→ f) ⇒ ♭→ (g ∘ f)
   ♭→-commutes-with-∘ f g (a ^♭) = refl
 
   ♭-recursion :
-    ∀ {A B :{♭} 𝒰₀} 
-    → (f :{♭} B → A)
+    ∀ {@♭ A B : 𝒰₀} 
+    → (@♭ f : B → A)
     → (p : B is-discrete)
     → (B → ♭ A)
   ♭-recursion {B = B} f p = ♭→ f ∘ φ
     where φ = left-inverse-of (♭-counit-at B) given-by p
 
   ♭-identity-induction :
-    ∀ {A :{♭} 𝒰₀}
-    → (C :{♭} (x y :{♭} A) (p :{♭} x ≈ y) → 𝒰₀)
-    → (d :{♭} (x :{♭} A) → C x x refl)
-    → (x y :{♭} A) → (p :{♭} x ≈ y) → C x y p
+    ∀ {@♭ A : 𝒰₀}
+    → (@♭ C : (@♭ x y : A) (@♭ p : x ≈ y) → 𝒰₀)
+    → (@♭ d : (@♭ x : A) → C x x refl)
+    → (@♭ x y : A) → (@♭ p : x ≈ y) → C x y p
   ♭-identity-induction C d x .x refl = d x
 
 
@@ -113,8 +113,8 @@ module Flat where
      a proof close to what Mike did is further to the bottom 
      of this file -}
   ♭-commutes-with-identity-types :
-    ∀ {A :{♭} 𝒰₀}
-    → (x y :{♭} A)
+    ∀ {@♭ A : 𝒰₀}
+    → (@♭ x y : A)
     → ♭ (x ≈ y) ≃ x ^♭ ≈ y ^♭
   ♭-commutes-with-identity-types x _ =
      (λ {(refl ^♭) → refl})
@@ -127,7 +127,7 @@ module Flat where
   {- Lemma 6.8 -}
 
   ♭-commutes-with-Σ :
-    ∀ (A :{♭} 𝒰₀) (B :{♭} A → 𝒰₀)
+    ∀ (@♭ A : 𝒰₀) (@♭ B : A → 𝒰₀)
     → ♭ (Σ A B) ≃ Σ (♭ A) (λ x → let♭ u ^♭:= x in♭ ♭ (B u))
   ♭-commutes-with-Σ A B = (λ {((a , b) ^♭) → (a ^♭) , (b ^♭)})
     is-an-equivalence-because
@@ -138,11 +138,11 @@ module Flat where
 
 
   ♭-apply :
-    {l :{♭} Level}
-    {A B :{♭} 𝒰 l}
-    (f :{♭} A → B)
-    {x y :{♭} A}
-    (p :{♭} x ≈ y)
+    {@♭ l : Level}
+    {@♭ A B : 𝒰 l}
+    (@♭ f : A → B)
+    {@♭ x y : A}
+    (@♭ p : x ≈ y)
     → f(x) ≈ f(y)
   ♭-apply f refl = refl
 
@@ -160,7 +160,7 @@ module Flat where
         _ _ id-as-equivalence e
     
   ♭-preserves-pullbacks :
-    ∀ (A B C :{♭} 𝒰₀) (f :{♭} A → C) (g :{♭} B → C)
+    ∀ (@♭ A B C : 𝒰₀) (@♭ f : A → C) (@♭ g : B → C)
     → ♭ (Σ A (λ x → Σ B (λ y → f(x) ≈ g(y))))
       ≃ Σ (♭ A) (λ x → Σ (♭ B) (λ y → (♭→ f)(x) ≈ (♭→ g)(y)))
   ♭-preserves-pullbacks A B C f g =
@@ -188,7 +188,7 @@ module Flat where
 
   -- setup for thm 6.1 and '♭-commutes-with-identity-types'
   ♭-encode-decode-is-enough :
-    ∀ {A :{♭} 𝒰₀} (code : ♭ A → ♭ A → 𝒰₀)
+    ∀ {@♭ A : 𝒰₀} (code : ♭ A → ♭ A → 𝒰₀)
     → (encode : (x y : ♭ A) → x ≈ y → code x y)
     → (decode : (x y : ♭ A) → code x y → x ≈ y)
     → (retract : (x y : ♭ A) → (encode x y) ∘ (decode x y) ⇒ id)
@@ -215,8 +215,8 @@ module Flat where
     in equivalence-from-equivalence-on-sums.conclusion (decode x) (step2 x) y
 
   ♭-commutes-with-identity-types' :
-    ∀ {A :{♭} 𝒰₀}
-    → (x y :{♭} A)
+    ∀ {@♭ A : 𝒰₀}
+    → (@♭ x y : A)
     → ♭ (x ≈ y) ≃ x ^♭ ≈ y ^♭
   ♭-commutes-with-identity-types' {A} x y =
     let

@@ -1,9 +1,9 @@
 {-# OPTIONS --without-K #-}
 
-open import Basics 
-open import EqualityAndPaths 
+open import CDCHoTT.Basics 
+open import CDCHoTT.EqualityAndPaths 
 
-module Homotopies where 
+module CDCHoTT.Homotopies where 
 
 -- homotopy
 _∼_ : ∀ {i j} {A : U i} {B : U j} → (f g : A → B) → U (i ⊔ j)

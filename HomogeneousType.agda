@@ -1,13 +1,13 @@
 {-# OPTIONS --without-K #-}
 
-module HomogeneousType where 
-  open import Basics 
-  open import EqualityAndPaths renaming (_⁻¹ to _⁻¹•)
-  open import Homotopies
-  open import Language
-  open import Equivalences
-  open import CommonEquivalences
-  open import FunctionExtensionality
+module CDCHoTT.HomogeneousType where 
+  open import CDCHoTT.Basics 
+  open import CDCHoTT.EqualityAndPaths renaming (_⁻¹ to _⁻¹•)
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Language
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.CommonEquivalences
+  open import CDCHoTT.FunctionExtensionality
   
   {- 
     All points of a homogeneous space
@@ -116,8 +116,8 @@ module HomogeneousType where
           K′ (ψ A′ x $≃ a)
         ≃∎
 
-    import DependentTypes
-    open DependentTypes.fiber-equivalences-along-an-equivalence-on-the-base K′ K′
+    import CDCHoTT.DependentTypes
+    open CDCHoTT.DependentTypes.fiber-equivalences-along-an-equivalence-on-the-base K′ K′
 
     ψ-K : ∀ (p : K) → K ≃ K
     ψ-K (x , γ) =

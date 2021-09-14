@@ -1,11 +1,11 @@
 {-# OPTIONS --without-K #-}
 
-module Fiber where
+module CDCHoTT.Fiber where
 
-  open import Basics 
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Equivalences
+  open import CDCHoTT.Basics 
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Equivalences
 
   record fiber-of {i j} {X : U i} {Y : U j} (f : X → Y) (y₀ : Y) : U (i ⊔ j) where
     constructor _is-in-the-fiber-by_ 

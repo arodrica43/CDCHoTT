@@ -1,22 +1,22 @@
 {-# OPTIONS --without-K #-}
 
-module FormalDiskBundle where 
-  open import Basics
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Language
-  open import Equivalences
-  open import CommonEquivalences  
-  open import Pullback
-  open import PullbackSquare
-  open import Im
-  open import InfinityGroups
-  open import EtaleMaps hiding (underlying-map-of)
-  open import DependentTypes
-  open import Fiber
-  open import Contractibility
-  open import HomogeneousType
-  open import FormalDisk
+module CDCHoTT.FormalDiskBundle where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Language
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.CommonEquivalences  
+  open import CDCHoTT.Pullback
+  open import CDCHoTT.PullbackSquare
+  open import CDCHoTT.Im
+  open import CDCHoTT.InfinityGroups
+  open import CDCHoTT.EtaleMaps hiding (underlying-map-of)
+  open import CDCHoTT.DependentTypes
+  open import CDCHoTT.Fiber
+  open import CDCHoTT.Contractibility
+  open import CDCHoTT.HomogeneousType
+  open import CDCHoTT.FormalDisk
   
   -- formal disk at a point as pullback
   --  
@@ -192,7 +192,7 @@ module FormalDiskBundle where
     
     T∞V = ∑ (T∞-as-dependent-type V)
 
-    open import HalfAdjointEquivalences
+    open import CDCHoTT.HalfAdjointEquivalences
 
     ha-equivalence-at : (v : V) → 𝔻ₑ ≃ha (𝔻 _ v)
     ha-equivalence-at v = equivalence-to-half-adjoint-equivalence (identifications-of-all-formal-disks v)

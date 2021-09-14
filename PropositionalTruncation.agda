@@ -1,8 +1,8 @@
 {-# OPTIONS --without-K #-}
 
-module PropositionalTruncation where 
-  open import Basics
-  open import EqualityAndPaths
+module CDCHoTT.PropositionalTruncation where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
 
   module _ where
     private
@@ -46,8 +46,8 @@ module PropositionalTruncation where
       → (A → B) → ∥ A ∥ → ∥ B ∥
     ∥→ f ∥→ = ∥-∥-recursion _ (∥-∥-is-truncation _) (λ a → ∣ (f a) ∣)
 
-    open import Equivalences
-    open import Univalence
+    open import CDCHoTT.Equivalences
+    open import CDCHoTT.Univalence
     
     ∥≃_∥≃ :
       ∀ {i} {A : U i} {B : U i}

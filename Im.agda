@@ -1,21 +1,21 @@
 {-# OPTIONS --without-K #-}
 
-module Im where 
-  open import Basics
-  open import EqualityAndPaths
-  open import Homotopies
-  open import Contractibility
-  open import Equivalences
-  open import Sums using (dependent-curry)
-  open import DependentTypes
-  open import CommonEquivalences
-  open import InfinityGroups
-  open import FunctionExtensionality
-  open import Pullback
-  open import PullbackSquare
-  open import Fiber
-  open import Language
-  open import Univalence                     -- for now, just convenience
+module CDCHoTT.Im where 
+  open import CDCHoTT.Basics
+  open import CDCHoTT.EqualityAndPaths
+  open import CDCHoTT.Homotopies
+  open import CDCHoTT.Contractibility
+  open import CDCHoTT.Equivalences
+  open import CDCHoTT.Sums using (dependent-curry)
+  open import CDCHoTT.DependentTypes
+  open import CDCHoTT.CommonEquivalences
+  open import CDCHoTT.InfinityGroups
+  open import CDCHoTT.FunctionExtensionality
+  open import CDCHoTT.Pullback
+  open import CDCHoTT.PullbackSquare
+  open import CDCHoTT.Fiber
+  open import CDCHoTT.Language
+  open import CDCHoTT.Univalence                     -- for now, just convenience
 
   -- Axioms for ℑ, the infinitesimal shape modality
   -- (this may also be read as axiomatizing a general modality)
