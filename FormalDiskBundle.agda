@@ -1,4 +1,4 @@
-{-# OPTIONS --without-K #-}
+{-# OPTIONS --cubical --without-K #-}
 
 module CDCHoTT.FormalDiskBundle where 
   open import CDCHoTT.Basics

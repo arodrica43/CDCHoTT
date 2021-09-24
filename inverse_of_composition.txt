@@ -1,0 +1,65 @@
+
+  pathComp-l-cancel :  ∀ {i} {A : U i} {x y z : A} (p : x ≡ y) (q : y ≡ z) → ((p ∙ q) ⁻¹) ∙ (p ∙ q) ≡ refl
+  pathComp-l-cancel p q = lCancel (p ∙ q)
+
+  pathComp-r-fixed :  ∀ {i} {A : U i} {x y z : A} (p : x ≡ y) (q : y ≡ z)(r : x ≡ y) → (p ≡ r) → p ∙ q ≡ r ∙ q
+  pathComp-r-fixed {x = x} p q r s = λ i j → hcomp (doubleComp-faces (λ _ → x) q j) (s i j) 
+  pathComp-l-fixed :  ∀ {i} {A : U i} {x y z : A} (p : x ≡ y) (q : z ≡ x)(r : x ≡ y) → (p ≡ r) → q ∙ p ≡ q ∙ r
+  pathComp-l-fixed {z = z} p q r s = λ i j → hcomp (doubleComp-faces (λ _ → z) (s i) j) (q j)   
+     
+
+  H3 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) → (((p ∙ q) ⁻¹) ∙ (p ∙ q)) ∙ (q ⁻¹) ≡ refl ∙ (q ⁻¹)
+  H3 {z = z} p q = λ i j → hcomp (doubleComp-faces (λ _ → q i1) (q ⁻¹) j) (pathComp-l-cancel p q i j)  -- H2 ((((p ∙ q) ⁻¹) ∙ (p ∙ q))) (q ⁻¹) h1 don't work at all, some extremes of the cube aren't identified
+
+  H4 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) → ((p ∙ q) ⁻¹) ∙ ((p ∙ q) ∙ (q ⁻¹)) ≡ refl ∙ (q ⁻¹)
+  H4 {z = z} p q = assoc (((p ∙ q) ⁻¹)) (p ∙ q) (q ⁻¹) ∙ H3 p q --_∙_ (assoc (((p ∙ q) ⁻¹)) (p ∙ q) (q ⁻¹))
+
+  H52 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z)(l : z ≡ x)(r : z ≡ y) → l ∙ p ∙ (q ∙ r) ≡ l ∙ (p ∙ q) ∙ r
+  H52 {z = z} p q l r i = pathComp-l-fixed (p ∙ (q ∙ r))  l ((p ∙ q) ∙ r) (assoc p q r) i 
+
+
+  H51 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z)(l : z ≡ x) → l ∙ ((p ∙ q) ∙ (q ⁻¹)) ≡ refl ∙ (q ⁻¹) → l ∙ (p ∙ (q ∙ (q ⁻¹))) ≡ refl ∙ (q ⁻¹)
+  H51 {z = z} p q l s = H52 p q l (q ⁻¹) ∙ s
+
+  H531 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z)(l : z ≡ x) → l ∙ p ∙ q ∙ (q ⁻¹) ≡ l ∙ p ∙ refl
+  H531 p q l = pathComp-l-fixed ( p ∙ (q ∙ (q ⁻¹))) l ( p ∙ refl) (pathComp-l-fixed ((q ∙ (q ⁻¹))) p refl (rCancel q))  --pathComp-l-fixed ((q ∙ (q ⁻¹))) p refl (rCancel q)
+
+  H53 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z)(l : z ≡ x) → l ∙ (p ∙ (q ∙ (q ⁻¹))) ≡ refl ∙ (q ⁻¹) → l ∙ (p ∙ refl) ≡ refl ∙ (q ⁻¹)
+  H53 p q l s = (H531 p q l) ⁻¹ ∙ s
+
+  H541 : ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) →  (p ∙ q) ⁻¹ ∙ p ∙ q ∙ (q ⁻¹) ≡  (p ∙ q) ⁻¹ ∙ p ∙ refl
+  H541 p q = H531  p  q  ( (p ∙ q) ⁻¹)
+  
+  H542 : ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) → (p ∙ q) ⁻¹ ∙ p ∙ q ∙ (q ⁻¹) ≡  (p ∙ q) ⁻¹ ∙ (p ∙ q) ∙ (q ⁻¹) 
+  H542 p q = pathComp-l-fixed (p ∙ (q ∙ q ⁻¹)) ((p ∙ q) ⁻¹) ( (p ∙ q) ∙ (q ⁻¹)) (assoc p q (q ⁻¹))
+
+  H5 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) → ((p ∙ q) ⁻¹) ∙ (p ∙ refl) ≡ refl ∙ (q ⁻¹)
+  H5 {z = z} p q = (H541 p q) ⁻¹ ∙ (H542 p q) ∙ H4 p q
+  
+  H6 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) → ((p ∙ q) ⁻¹) ∙ (p ∙ refl) ≡ (q ⁻¹)
+  H6 {z = z} p q = H5 p q ∙ refl-is-l-neutral (q ⁻¹) ⁻¹
+
+  H71 : ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) → (p ∙ q) ⁻¹ ∙ p ≡ (p ∙ q) ⁻¹ ∙ p ∙ refl
+  H71 p q  = refl-is-r-neutral ((p ∙ q) ⁻¹ ∙ p) ∙ assoc ((p ∙ q) ⁻¹) p refl ⁻¹
+
+  H7 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) → ((p ∙ q) ⁻¹) ∙ p ≡ (q ⁻¹)
+  H7 {z = z} p q = H71 p q ∙ H6 p q
+
+
+  H8 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) → ((p ∙ q) ⁻¹) ∙ p ≡ (q ⁻¹) → (((p ∙ q) ⁻¹) ∙ p) ∙ p ⁻¹ ≡ (q ⁻¹) ∙ p ⁻¹ 
+  H8 {z = z} p q s = pathComp-r-fixed ((p ∙ q) ⁻¹ ∙ p) (p ⁻¹) (q ⁻¹) s
+
+  H9 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) → ((((p ∙ q) ⁻¹) ∙ p) ∙ p ⁻¹ ≡ (q ⁻¹) ∙ p ⁻¹) → ((p ∙ q) ⁻¹) ∙ (p ∙ p ⁻¹) ≡ (q ⁻¹) ∙ p ⁻¹ 
+  H9 {z = z} p q s = assoc ((p ∙ q) ⁻¹) p (p ⁻¹) ∙ s
+
+  H101 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) →  (p ∙ q) ⁻¹ ∙ refl ≡ (p ∙ q) ⁻¹ ∙ (p ∙ p ⁻¹)
+  H101 p q = pathComp-l-fixed refl ((p ∙ q) ⁻¹) (p ∙ p ⁻¹) (⁻¹-is-right-inversion p ⁻¹)
+
+  H102 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) →  (p ∙ q) ⁻¹ ∙ refl ≡ (p ∙ q) ⁻¹ ∙ p ∙ p ⁻¹
+  H102 p q = pathComp-l-fixed refl ((p ∙ q) ⁻¹) (p ∙ p ⁻¹) (⁻¹-is-right-inversion p ⁻¹)
+  
+  H10 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) → ((p ∙ q) ⁻¹) ∙ refl ≡ (q ⁻¹) ∙ p ⁻¹ 
+  H10 {z = z} p q = H101 p q ∙ H9 p q (H8 p q (H7 p q))
+
+  H11 :  ∀ {i} {A : U i} {x y z : A}  (p : x ≡ y) (q : y ≡ z) → (p ∙ q) ⁻¹ ≡ q ⁻¹ ∙ p ⁻¹  
+  H11 p q = refl-is-r-neutral ((p ∙ q) ⁻¹) ∙ H10 p q

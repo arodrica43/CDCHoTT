@@ -2,6 +2,13 @@
 
 module CDCHoTT.Basics where
 
+open import Cubical.Foundations.Everything public
+open import Cubical.Data.Unit public
+    renaming (Unit to 𝟙)
+    renaming (tt to ∗) 
+  
+
+
 -- if your agda version is < 2.4 you might have to use the following:
 -- 
 -- postulate  -- Universe levels
@@ -37,7 +44,7 @@ U₁ = U (lsuc lzero)
 
 𝒰 = U
 
-Type = 𝒰
+--Type = 𝒰
 
 {- 
 from HoTT-Agda (including following comment)
@@ -48,11 +55,12 @@ The operation of lifting enjoys both β and η definitionally.
 It’s a bit annoying to use, but it’s not used much (for now).
 -}
 
-record Lift {i j} (A : 𝒰 i) : 𝒰 (i ⊔ j) where
+{-record Lift {i j} (A : 𝒰 i) : 𝒰 (i ⊔ j) where
   instance constructor lift
   field
     lower : A
 open Lift public
+-}
 
 
 domain : ∀ {A B : 𝒰₀} → (A → B) → 𝒰₀
@@ -61,16 +69,17 @@ domain {A} {_} _ = A
 codomain : ∀ {A B : 𝒰₀} → (A → B) → 𝒰₀
 codomain {_} {B} _ = B
 
-
+{-
 data Bool : 𝒰₀ where
   true : Bool
   false : Bool
+-}
 
 
-Π : ∀ {i j} → {A : 𝒰 i} → (P : A → 𝒰 j) → 𝒰 (i ⊔ j)
-Π {A = A} P = (a : A) → P a
-
-syntax Π (λ u → t) = Π u ↦ t
+--Π : ∀ {i j} → {A : 𝒰 i} → (P : A → 𝒰 j) → 𝒰 (i ⊔ j)
+--Π {A = A} P = (a : A) → P a
+{--
+syntax Π (λ u → t) = (u : )
 
 π-Π : ∀ {A : 𝒰₀} {P : A → 𝒰₀}
       → (a : A) → Π P → P a
@@ -189,3 +198,4 @@ data Two : 𝒰₀ where
 ¬ A = A → Zero
 
 
+-}
