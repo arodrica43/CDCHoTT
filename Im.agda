@@ -35,7 +35,7 @@ module CDCHoTT.Im where
   ι = ℑ-unit
 
   _is-coreduced : ∀ {i} → 𝒰 i → 𝒰 i
-  A is-coreduced = ℑ-unit {_} {A} is-an-equivalence
+  A is-coreduced = ℑ-unit-at A is-an-equivalence
 
   ℑ𝒰₀ : 𝒰₁
   ℑ𝒰₀ = ∑ λ (A : 𝒰₀) → A is-coreduced
